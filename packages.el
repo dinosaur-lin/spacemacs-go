@@ -16,7 +16,7 @@
       (add-hook 'before-save-hook #'gofmt-before-save)
       (add-hook 'go-mode-hook 'company-mode)
       (add-hook 'go-mode-hook (lambda ()
-                               (set (make-local-variable 'company-backends) '(company-go))
+                               (set (make-local-variable 'company-backends) '(company-go :with company-dabbrev-code))
                                (company-mode)))
       (add-hook 'go-mode-hook (lambda ()
                                 (auto-complete-mode -1)))
