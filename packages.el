@@ -14,9 +14,10 @@
     :defer t
     :init
     (progn
-      (add-hook 'before-save-hook 'gofmt-before-save)
       (add-hook 'go-mode-hook (lambda ()
                                 (auto-complete-mode -1)
                                 (go/enable-company-mode)
-                                (go/enable-goflycheck)))
+                                (go/enable-goflycheck)
+                                (setq gofmt-command "goimports")
+                                (add-hook 'before-save-hook 'gofmt-before-save)))
       (require 'go-mode-autoloads))))
